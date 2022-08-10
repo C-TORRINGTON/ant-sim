@@ -1,6 +1,7 @@
 const EDGE_BUFFER = 1;
 const HISTORY_SIZE = 100;
 
+// yo
 
 class Ant {
   constructor(pos, speed, heading){
