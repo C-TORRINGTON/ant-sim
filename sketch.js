@@ -1,35 +1,35 @@
-const NUM_ANTS = 500;
-const cwidth = 2555;
-const cheight = 1295;
-const FOOD_NUM = 5;
-
 let ants = [];
 let food = [];
 
+const ANTS_NUM = 10;
+const FOOD_NUM = 50;
+
 function setup() {
-  createCanvas(cwidth, cheight);
-  strokeWeight(2)
+  createCanvas(700, 550);
   
-  // create ants
-  for (let i = 0; i < NUM_ANTS; i++){
-    append(ants, new Ant(createVector(width/2, height/2), random(0.1, 0.3), random(2 * PI)));
+  // make ants
+  for (let i = 0; i < ANTS_NUM; i++){
+    ants.push(new Ant());
   }
-  
-  // create food
-  for (let i = 0; i < FOOD_NUM; i += 1){
+
+  // make food
+  for (let i = 0; i < FOOD_NUM; i++){
     food.push(new Food());
   }
 }
 
 function draw() {
+  background(0);
+  translate(width/2, height/2);
+
   // draw ants
   for (let ant of ants){
-    ant.draw();
     ant.move();
+    ant.show();
   }
-  
+
   // draw food
   for (let f of food){
-    f.draw();
+    f.show();
   }
 }
